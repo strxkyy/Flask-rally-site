@@ -1,5 +1,5 @@
 import sqlite3 #banco de dados embutido 
-from flask import Flask  #flask e funçoes necessarias
+from flask import Flask,redirect,render_template,get_flashed_messages  #flask e funçoes necessarias
 
 con = sqlite3.connect("pilotos.db")
 
