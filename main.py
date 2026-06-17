@@ -5,8 +5,7 @@ con = sqlite3.connect("pilotos.db")
 
 cursor = con.cursor()
 
-cursor.execute("""create table if not exists pilotos (
-               
-        Id integer  primary key autoincrement,
-        nome text not null unique,
-        carro text not null  )""")
+cursor.execute("""insert into pilotos (nome,carro) values (?,?)
+               """, ("Colin Mcrae","Subaru inprenza wrx Sti")) #inserindo piloto e carro no arquivo de banco de dados
+
+con.commit() #codigo que faz a conexão apos o comando anterior e envia a inserção para o banco de dados 
