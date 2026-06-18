@@ -1,11 +1,17 @@
 import sqlite3 #banco de dados embutido 
 from flask import Flask,redirect,render_template,get_flashed_messages  #flask e funçoes necessarias
 
-con = sqlite3.connect("pilotos.db")
+con = sqlite3.connect("usuario.db")
 
 cursor = con.cursor()
 
-cursor.execute("""insert into pilotos (nome,carro) values (?,?)
-               """, ("Colin Mcrae","Subaru inprenza wrx Sti")) #inserindo piloto e carro no arquivo de banco de dados
+cursor.execute("""
+               create table if not exists usuario
+               
+               (id integer PRIMARY KEY AUTOINCREMENT,
+               nome text not null unique,
+               senha text not null)
+               """)  #criação da tabela de usuario para validação na rota html
 
-con.commit() #codigo que faz a conexão apos o comando anterior e envia a inserção para o banco de dados 
+con.commit() 
+
