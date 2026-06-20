@@ -5,13 +5,8 @@ con = sqlite3.connect("usuario.db")
 
 cursor = con.cursor()
 
-cursor.execute("""
-               create table if not exists usuario
-               
-               (id integer PRIMARY KEY AUTOINCREMENT,
-               nome text not null unique,
-               senha text not null)
-               """)  #criação da tabela de usuario para validação na rota html
+cursor.execute("""insert into usuario (nome,senha) values (?,?)
+               """, ("gituser","62956")) #inserção de usuario para verificação da primeira rota 
 
 con.commit() 
 
