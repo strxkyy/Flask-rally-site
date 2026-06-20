@@ -5,8 +5,17 @@ con = sqlite3.connect("usuario.db")
 
 cursor = con.cursor()
 
-cursor.execute("""insert into usuario (nome,senha) values (?,?)
-               """, ("gituser","62956")) #inserção de usuario para verificação da primeira rota 
+cursor.execute("""""")
 
 con.commit() 
+
+site = Flask(__name__)
+
+@site.route("/") # rota de entrada inicial/verificação do site 
+def verificacao_usuario(): #necessario definir uma função,necessaria para retornar o comando "render_template" que ira executar nosso arquivo .html na pasta templates
+    return render_template("verificacao.html")
+
+site.run(debug=True)
+
+
 
