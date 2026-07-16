@@ -1,5 +1,5 @@
 import sqlite3 #banco de dados embutido 
-from flask import Flask,redirect,render_template,get_flashed_messages, request #flask e funçoes necessarias
+from flask import Flask,redirect,render_template, request,flash
 
 con = sqlite3.connect("usuario.db")
 
@@ -10,6 +10,8 @@ cursor.execute("""""")
 con.commit() 
 
 site = Flask(__name__)
+
+site.secret_key = "TRUENO"
 
 @site.route("/", methods=["get","post"])
 def login():
@@ -26,17 +28,20 @@ def verificacao_usuario():
     cursor.execute("select * from usuario where nome = ? and senha = ?",
     (nome,senha))
 
-    usuario = cursor.fetchone()
+    resultado = cursor.fetchone()
 
     con.close()
 
-    if usuario:
-    
-     return render_template("login.html")
+    if resultado:
+     return redirect("/home")
     
     else:
-    
-     return render_template("home.html") 
+     flash("LOGIN OU USUARIO INCORRETOS!", "erro")
+     return redirect("/")
+
+@site.route("/home")
+def home():
+   return render_template("home.html")
 
 
 site.run(debug=True)

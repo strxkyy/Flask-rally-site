@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,19 @@
 </head>
 <div id="barra1"> <h1>made by : <a id="github"  href="https://github.com/strxkyy" target="_blank">strxkyy</a> </h1> <img src="/static/images/githublogo.png" alt="gitlogo" id="gitlogo"></div>
 <body>
+
+
     
        <h1 id="saudacao">seja bem vindo</h1>
+       {% with mensagens = get_flashed_messages() %}
+          {% if mensagens %}
+            <ul class="flashes">
+               {%for mensagem in mensagens%}
+                 <li>{{mensagem}}</li>
+               {%endfor%}
+             </ul>
+          {% endif %}
+       {%endwith%}
     <form action="/verificacao" method="post" id="formlogin">
         <label for="nome" id="inome">
             <input name="nome" placeholder="insira seu nome de usuario" type="text">
