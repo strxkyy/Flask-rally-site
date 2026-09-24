@@ -1,51 +1,72 @@
-@font-face {
-    font-family: BAD GRUNGE;
-    src: url(fonts/BAD\ GRUNGE.ttf);
-}
-@font-face {
-    font-family: vampire wars;
-    src: url(fonts/Vampire\ Wars.ttf);
+:root{
+    --bluemain: #809FA6;
+    --brownmain : #736C49;
+    --midyel: #F2DEA2;
+    --lowpink: #D9C5AD;
+    --hotred: #D97855;
 }
 
 @font-face {
-    font-family: karate;
-    src: url(fonts/Karate.ttf);
-}
+    font-family: GTproelium;
+    src: url(fonts/GTProeliumSharpItalic.otf) format('opentype');
+    font-style: italic;}
 
 @font-face {
     font-family: checkpoint;
     src: url(fonts/CP\ Font.otf);
 }
 
-@font-face {
-    font-family: gambarino;
-    src: url(fonts/Gambarino-Regular.otf);
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#barra1 {
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+}   
+
+#barra1 h1{
+    color: rgb(109 66 66);
+    text-align: center;
+    font-family: checkpoint;
+    font-size: medium;
+    margin-top: 10pxpx;
+    gap: 5px;
 }
 
 #gitlogo{
-
-    height: 43px;
-    margin-right: 12px;
-
+    height: 30px;
+    margin-right: 15px;
+    margin-left: 9px;
 }
 
+#postitlogin{
+    position: fixed;
+    left: 510px;
+    bottom: 149px;
+    max-height: 100px;
+    
+    
+}
 body {    
 
     background-image: url(images/_.jpeg);
     background-repeat: no-repeat;
     background-position: center;
-   
-
-    background-color: #BF0449;
+    background-color: #5b030b;
     margin-top: 18%;
     margin-bottom: 18%;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-#github{
-color: #800020;
 }
 
 #formlogin input {
@@ -56,42 +77,17 @@ color: #800020;
     font-family: checkpoint;
     font-size: 10px;
 }
-
-#barra1 {
-  background-color: black;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-
-}   
-
-#barra1 h1{
-    color: rgb(109 66 66);
-    text-align: center;
-    font-family: checkpoint;
-    size: 30px;
-    font-size: larger;
-    gap: 5px;
-
-}
-
-
 #barra2{
   background-color: black;
-  position: fixed;#7e0f42
+  position: fixed;
   width: 100%;
-  height: 50px;
+  height: 38px;
   bottom: 0;
-  
 }
 
 #saudacao{
-   font-family: karate;#7e0f42
-   color: #000000;
+   font-family: GTproelium;
+   color: #a39899;
    gap: 40px;
    text-shadow: 4px 4px #7e0f42;
    font-size: 42px;
